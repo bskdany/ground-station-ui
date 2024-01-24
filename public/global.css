@@ -1,13 +1,76 @@
 /* Font Import */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@font-face {
+  font-family: 'Outfit-Black';
+  src: url('./fonts/Outfit-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-Bold';
+  src: url('./fonts/Outfit-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-ExtraBold';
+  src: url('./fonts/Outfit-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-ExtraLight';
+  src: url('./fonts/Outfit-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-Light';
+  src: url('./fonts/Outfit-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-Medium';
+  src: url('./fonts/Outfit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-Regular';
+  src: url('./fonts/Outfit-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-SemiBold';
+  src: url('./fonts/Outfit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Outfit-Thin';
+  src: url('./fonts/Outfit-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
 
 /* Root variables */
 :root {
   /* Colours */
-  --primary: #25282d;
+  --primary: #141414;
   --secondary: #fcfffe;
-  --tertiary: #2e3138;
-  --quaternary: #5c6270;
+  --tertiary: #1a1a1a;
+  --quaternary: #343434;
 
   --accent-one: #cc0018;
   --accent-two: #e05200;
@@ -15,7 +78,8 @@
   --accent-four: #ffe6a7;
 
   /* Font */
-  --font: "Poppins", sans-serif;
+
+--font: 'Outfit-Regular', sans-serif;
 
   /* Sizing */
   --top-pad: 2rem;
@@ -57,9 +121,9 @@ html {
 }
 
 body {
-  position: fixed;
-  height: 100vh;
-  width: 100vw;
+  /* position: fixed; */
+  height: 100%;
+  width: 100%;
   overflow-y: auto;
 
   color: var(--secondary);

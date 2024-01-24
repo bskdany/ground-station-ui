@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components'
 
 export default function MissionTimer({ mission_time }) {
   // Convert ms to HH:MM:SS
@@ -11,11 +12,16 @@ export default function MissionTimer({ mission_time }) {
   }
 
   return (
-    <div id="mission-timer">
-      <p style={{ fontWeight: 200, fontSize: "0.8rem" }}>
-        <strong style={{ fontWeight: 400 }}>Mission duration: </strong>
-        {mission_duration}
-      </p>
-    </div>
+    <MissionDataContainer>
+      <p style={{ fontWeight: 200, fontSize: "0.6rem" }}>MISSON TIME</p>
+      <strong style={{ fontWeight: 400 }}>{mission_duration}</strong>
+    </MissionDataContainer>
   );
 }
+
+const MissionDataContainer = styled.div`
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+`

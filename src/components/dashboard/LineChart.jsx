@@ -54,7 +54,7 @@ function LineChart(props) {
                             y={0}
                             width={width}
                             height={height}
-                            fill={colors.darkGray}
+                            fill={colors.background}
                         />
 
                         {/* The x axis */}

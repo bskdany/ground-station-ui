@@ -2,12 +2,13 @@ import React from "react";
 import "./Home.css";
 
 // Components
-import DashboardGraph from "../../components/dashboard/DashboardGraph";
 import GaugeGraph from "../../components/dashboard/GaugeGraph";
 import GNSSMeta from "../../components/dashboard/GNSSMeta";
 import Card from "../../components/card/Card";
 import GridLayout from 'react-grid-layout';
 import LineChart from "../../components/dashboard/LineChart";
+import ToastInfo from "../../components/base/ToastInfo";
+import styled from "styled-components";
 
 export default function Home() {
   // Altitude data callbacks
@@ -87,7 +88,7 @@ export default function Home() {
   const spacingY = 4 // Vertical spacing between items
   const minWidth = 1 // Minimum width for grid items
   const minHeight = 3 // Minimum height for grid items
-  const containerWidth = (window.innerWidth * 0.8)
+  const containerWidth = (window.innerWidth)
   
   // Create layout items for each component in graphArray with equal spacing
   const gridItems = graphArray.map((component, index) => {
@@ -106,33 +107,33 @@ export default function Home() {
       minH: minHeight
     }
   });
-  const handleLayoutChange = (newLayouts) => {
-    // Handle layout changes here
-    console.log('Layout changed:', newLayouts);
-  };
+  // const handleLayoutChange = (newLayouts) => {
+  //   // Handle layout changes here
+  //   console.log('Layout changed:', newLayouts);
+  // };
 
   return (
-    <main id="home" className="page-main">
-      <h1>Main Dashboard</h1>
-      <section id="graphs">
-        <GridLayout
-          className="layout"
-          layout={gridItems}
-          cols={numColumns}
-          rowHeight={100}
-          width={containerWidth}
-          onLayoutChange={handleLayoutChange}
-          isResizable={true} // Enable resize handles
-          isBounded={true}
-          margin={[spacingX, spacingY]}
-        >
-          {graphArray.map((component, index) => (
-            <div key={`item${index}`}>
-              <Card key={index} bodyComponent={component} />
-            </div>
-          ))}
-        </GridLayout>
-      </section>
-    </main>
+    <PageWrapper>
+      {/* <ToastInfo /> */}
+      <GridLayout
+        className="layout"
+        layout={gridItems}
+        cols={numColumns}
+        rowHeight={100}
+        width={containerWidth}
+        // onLayoutChange={handleLayoutChange}
+        isResizable={true} // Enable resize handles
+        isBounded={true}
+        margin={[spacingX, spacingY]}
+      >
+        {graphArray.map((component, index) => (
+          <div key={`item${index}`} className="handle">
+            <Card key={index} bodyComponent={component} title='test' />
+          </div>
+        ))}
+      </GridLayout>
+    </PageWrapper>
   );
 }
+
+const PageWrapper = styled.div``

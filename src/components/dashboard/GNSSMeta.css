@@ -34,7 +34,7 @@
 }
 
 .satellite:hover {
-  background-color: var(--accent-two);
+  background-color: var(--accent-one);
 }
 
 .metadata {

@@ -7,6 +7,7 @@ export const colors = {
     darkAccent: '#5E10FE',
     red: '#B80C09',
     green: '#659B5E',
+    background: '#1a1a1a'
 };
 
 export const pieDataColors = {
