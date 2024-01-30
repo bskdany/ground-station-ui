@@ -27,7 +27,7 @@ function App() {
   // Current pageS
   return (
     <AppWrapper>
-      {/* <Navbar version={status.version} org={status.org} status={status.status}>
+      <Navbar version={status.version} org={status.org} status={status.status}>
         <NavLink
           className={({ isActive }) => (isActive ? "link-active" : "link")}
           to="/"
@@ -43,8 +43,8 @@ function App() {
         <NavLink to="/Map"
         className={({ isActive }) => (isActive ? "link-active" : "link")}
         >Map</NavLink>
-      </Navbar> */}
-      <Navigation />
+      </Navbar>
+      {/* <Navigation /> */}
 
       {/* <Controls websocketRef={websocketRef} /> */}
 
