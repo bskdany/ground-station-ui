@@ -3,6 +3,7 @@ import { useKey } from "../../hooks/useKey";
 import Popup from "reactjs-popup"
 import ReplayItem from "./ReplayItem";
 import "./ReplayPopup.css";
+import GenericPopup from '../popup/GenericPopup';
 
 export default function ReplayPopup({status, websocketRef}) {
     // Setup list of replays
@@ -25,24 +26,21 @@ export default function ReplayPopup({status, websocketRef}) {
         buttonText += "\u23F9";
     }
 
+    const closePopup = () => {
+        setOpen(false);
+    }
+
     // Setup open state to have keybind
     const [open, setOpen] = useState(false);
     useKey("KeyR", "shift", () => {setOpen(!open)});
     return (
         <div>
             <p className="replay-button" id={buttonState} onClick={() => {setOpen(!open)}}>{buttonText}</p>
-            <Popup open={open} position="center center" modal>
-                <div className="replay-popup">
-                    <div className="replay-popup-titlebar">
-                        <h2>Replays</h2>
-                        <button onClick={() => {setOpen(!open)}}>&times;</button>
-                    </div>
-                    <hr />
-                    <div className="replay-popup-replaylist">
-                        {replays}
-                    </div>
+            <GenericPopup open={open} onClose={closePopup} title="Replays" >
+                <div className="replay-popup-replaylist">
+                    {replays}
                 </div>
-            </Popup>
+            </GenericPopup>
         </div>
     );
 }

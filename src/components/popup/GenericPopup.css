@@ -1,0 +1,23 @@
+.popup {
+    background-color: var(--primary);
+    padding: 1rem;
+    border-style: solid;
+    border-radius: 0.25rem;
+    width: 20rem;
+}
+.popup-titlebar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-titlebar button {
+    font-size: 1rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+    cursor: pointer;
+}
+
+.popup-titlebar button:hover {
+    background-color: #3d3d3d;
+}
