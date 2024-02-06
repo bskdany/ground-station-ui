@@ -10,14 +10,15 @@ export default function SerialPopup({status, websocketRef}) {
   useKey("KeyS", "shift", () => {setOpen(!open)});
 
   // Check if we are connected to serial
-  let buttonState = status.rn2483_radio.connected ? 'connected' : 'disconnected';
+  let isConnected = status.rn2483_radio.connected || (status.rn2483_radio.connected_port !== '' && status.rn2483_radio.connected_port !== 'null');
+  let buttonState = isConnected ? 'connected' : 'disconnected';
 
   const refreshSerialPorts = () => {
     websocketRef.current.send(`serial update`);
   }
 
   const disconnect = () => {
-    if(!status.rn2483_radio.connected) {
+    if(!isConnected) {
       return;
     }
     websocketRef.current.send(`serial rn2483_radio disconnect`);
@@ -39,7 +40,7 @@ export default function SerialPopup({status, websocketRef}) {
 
   return (
     <div>
-      <p className="serial-button" id={buttonState} onClick={() => {setOpen(!open)}}>Serial</p>
+      <p className="serial-button" id={buttonState} onClick={() => {setOpen(!open)}}>{isConnected ? `Serial: ${status.rn2483_radio.connected_port}` : `Serial: NULL`}</p>
       <GenericPopup open={open} onClose={() => {setOpen(false)}} title="Serial Connections">
         <div className='serial-button-bar'>
           <button onClick={refreshSerialPorts}>Refresh</button>
