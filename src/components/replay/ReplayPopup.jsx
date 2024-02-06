@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useKey } from "../../hooks/useKey";
-import Popup from "reactjs-popup"
 import ReplayItem from "./ReplayItem";
 import "./ReplayPopup.css";
 import GenericPopup from '../popup/GenericPopup';
@@ -13,6 +12,7 @@ export default function ReplayPopup({status, websocketRef}) {
         <ReplayItem name={mission.name} key={mission.key} websocketRef={websocketRef} />
         ));
     }
+    
     // Check if we are currently playing the replay and set the button color accordingly
     let buttonState = status.status === 1 ? 'playing' : 'stopped';
     

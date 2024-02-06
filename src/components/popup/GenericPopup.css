@@ -16,6 +16,11 @@
     background-color: var(--primary);
     color: var(--secondary);
     cursor: pointer;
+    border-style: solid;
+    border-color: var(--secondary);
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 1px 6px;
 }
 
 .popup-titlebar button:hover {
