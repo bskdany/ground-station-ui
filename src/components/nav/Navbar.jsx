@@ -7,6 +7,7 @@ import MissionTimer from "./MissionTimer";
 // Utils
 import { clear_telemetry } from "../../utils/storage";
 import ReplayPopup from "../replay/ReplayPopup";
+import SerialPopup from "./SerialPopup";
 
 export default function Navbar({ websocketRef, version, org, status, replayStatus, children }) {
   // Convert connection status
@@ -42,6 +43,7 @@ export default function Navbar({ websocketRef, version, org, status, replayStatu
         <p id="connection-status" className={connection}>
           {connection}
         </p>
+        <SerialPopup status={status.rn2483_radio} websocketRef={websocketRef} />
         <ReplayPopup status={replayStatus} websocketRef={websocketRef} />
       </div>
       <div id="nav-links">{children}</div>

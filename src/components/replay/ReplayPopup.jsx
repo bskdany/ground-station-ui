@@ -26,17 +26,13 @@ export default function ReplayPopup({status, websocketRef}) {
         buttonText += "\u23F9";
     }
 
-    const closePopup = () => {
-        setOpen(false);
-    }
-
     // Setup open state to have keybind
     const [open, setOpen] = useState(false);
     useKey("KeyR", "shift", () => {setOpen(!open)});
     return (
         <div>
             <p className="replay-button" id={buttonState} onClick={() => {setOpen(!open)}}>{buttonText}</p>
-            <GenericPopup open={open} onClose={closePopup} title="Replays" >
+            <GenericPopup open={open} onClose={() => {setOpen(false)}} title="Replays" >
                 <div className="replay-popup-replaylist">
                     {replays}
                 </div>

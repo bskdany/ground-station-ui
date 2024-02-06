@@ -5,7 +5,7 @@ import './GenericPopup.css'
 export default function GenericPopup({ open, onClose, title, children}) {
 
     return (
-        <Popup open={open} position="center center" modal>
+        <Popup open={open} onClose={onClose} position="center center" modal>
             <div className="popup">
                 <div className="popup-titlebar">
                     <h2>{title}</h2>
