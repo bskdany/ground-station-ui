@@ -1,5 +1,5 @@
 import "./App.css";
-import '../node_modules/react-grid-layout/css/styles.css'
+import "../node_modules/react-grid-layout/css/styles.css";
 
 // Hooks
 import { useWebsocket } from "./hooks/useWebsocket";
@@ -15,7 +15,6 @@ import Home from "./pages/home/Home";
 import Replays from "./pages/replays/Replays";
 import Map from "./pages/map/Map";
 import styled from "styled-components";
-import Navigation from "./components/navigation/Navigation";
 
 function App() {
   // Websocket data
@@ -40,9 +39,12 @@ function App() {
         >
           Replays
         </NavLink>
-        <NavLink to="/Map"
-        className={({ isActive }) => (isActive ? "link-active" : "link")}
-        >Map</NavLink>
+        <NavLink
+          to="/Map"
+          className={({ isActive }) => (isActive ? "link-active" : "link")}
+        >
+          Map
+        </NavLink>
       </Navbar>
       {/* <Navigation /> */}
 
@@ -69,6 +71,4 @@ function App() {
 
 export default App;
 
-const AppWrapper = styled.div`
-  
-`
+const AppWrapper = styled.div``;
