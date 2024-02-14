@@ -6,15 +6,12 @@ import { useWebsocket } from "./hooks/useWebsocket";
 
 // Components
 import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/nav/Navbar";
+import Navigation from "./components/navigation/Navigation";
 import { NavLink } from "react-router-dom";
-import Controls from "./components/controls/Controls";
 
 // Pages
 import Home from "./pages/home/Home";
-import Replays from "./pages/replays/Replays";
 import Map from "./pages/map/Map";
-import styled from "styled-components";
 
 function App() {
   // Websocket data
@@ -25,50 +22,45 @@ function App() {
 
   // Current pageS
   return (
-    <AppWrapper>
-      <Navbar version={status.version} org={status.org} status={status.status}>
+    <div className="app-wrapper" id="App">
+      <Navigation
+        websocketRef={websocketRef}
+        version={status.version}
+        org={status.org}
+        status={status.status}
+        replayStatus={replayStatus}
+      >
         <NavLink
           className={({ isActive }) => (isActive ? "link-active" : "link")}
           to="/"
         >
           Home
         </NavLink>
-        <NavLink
+        {/*<NavLink
           to="/replays"
           className={({ isActive }) => (isActive ? "link-active" : "link")}
         >
           Replays
-        </NavLink>
+        </NavLink>*/}
         <NavLink
           to="/Map"
           className={({ isActive }) => (isActive ? "link-active" : "link")}
         >
           Map
         </NavLink>
-      </Navbar>
+      </Navigation>
       {/* <Navigation /> */}
 
       {/* <Controls websocketRef={websocketRef} /> */}
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/replays"
-          element={
-            <Replays
-              websocketRef={websocketRef}
-              missions={replayStatus.mission_list}
-            />
-          }
-        />
         <Route path="/Map" element={<Map />} />
       </Routes>
 
-      <div id="footer">Developed by Matteo Golin</div>
-    </AppWrapper>
+      <div id="footer">Developed by Matteo Golin, Eshan Betrabet</div>
+    </div>
   );
 }
 
 export default App;
-
-const AppWrapper = styled.div``;

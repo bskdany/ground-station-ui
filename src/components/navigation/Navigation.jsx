@@ -1,15 +1,21 @@
 import React from "react";
-import "./Navbar.css";
+import "./Navigation.css";
 
 // Components
 import MissionTimer from "./MissionTimer";
 import MissionSpacecraft from "./MissionSpacecraft";
 
 // Utils
-import { clear_telemetry } from "../../utils/storage";
-import styled from "styled-components";
+import ReplayPopup from "../replay/ReplayPopup";
 
-export default function Navbar({ version, org, status, children }) {
+export default function Navigation({
+  websocketRef,
+  version,
+  org,
+  status,
+  replayStatus,
+  children,
+}) {
   // Convert connection status
   const connection = status.rn2483_radio.connected
     ? "connected"
@@ -38,15 +44,19 @@ export default function Navbar({ version, org, status, children }) {
             <p id="version">{`v${version}`}</p>
           </div> */}
           <MissionTimer mission_time={status.rocket.mission_time} />
-          <MissionSpacecraft mission_name={mission_name} deployment_status={deployment} />
+          <MissionSpacecraft
+            mission_name={mission_name}
+            deployment_status={deployment}
+          />
         </div>
-        {/* <p id="connection-status" className={connection}> */}
-          {/* {connection}
-        </p> */}
+        <p id="connection-status" className={connection}>
+          {connection}
+        </p>
+        <ReplayPopup status={replayStatus} websocketRef={websocketRef} />
       </div>
       <div id="nav-links">{children}</div>
     </nav>
-    // <NavigationWrapper>
+    // <div className="navigation-wrapper">
     //   <NavigationLeft>
     //     <p>rocket name</p>
     //   </NavigationLeft>
@@ -54,19 +64,6 @@ export default function Navbar({ version, org, status, children }) {
     //     <button>replay dropdown</button>
     //     <button>settings</button>
     //   </NavigationRight>
-    // </NavigationWrapper>
+    // </div>
   );
 }
-
-
-const NavigationWrapper = styled.div`
-  
-`
-
-const NavigationLeft = styled.div`
-  
-`
-
-const NavigationRight = styled.div`
-  
-`

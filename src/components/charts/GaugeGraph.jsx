@@ -2,7 +2,7 @@ import React from "react";
 
 // Hooks
 import { useStorage } from "../../hooks/useStorage";
-import { CenteredTitle } from "../../utils/chart-options";
+// import { CenteredTitle } from "../../utils/chart-options";
 
 // Importing Echarts library
 import ReactEcharts from "echarts-for-react";
@@ -180,5 +180,11 @@ export default function GaugeGraph({
     ],
   };
 
-  return <ReactEcharts option={options} className={className} style={{ width: '100%', height: '100%' }}/>;
+  return (
+    <ReactEcharts
+      option={options}
+      className={className}
+      style={{ width: "100%", height: "100%" }}
+    />
+  );
 }

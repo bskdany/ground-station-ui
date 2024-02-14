@@ -7,7 +7,7 @@
   max-height: 2.5rem;
   padding: 1rem 0;
   overflow: hidden;
-  transition: all 0.5s linear;
+  transition: all 0.1s linear;
   --highlight-colour: var(--quaternary);
   --button-colour: var(--accent-one);
 }
